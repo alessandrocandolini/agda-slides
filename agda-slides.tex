@@ -1,0 +1,95 @@
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage[english]{babel}
+
+% Beamer theme
+\usetheme{metropolis}
+
+\usepackage{smartdiagram}
+\usepackage{lstautogobble}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}%creative commons
+\setbeamercovered{transparent}%invisible by default
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,calc}
+\usetikzlibrary{positioning,chains,fit,shapes,calc,automata,positioning}
+\usepackage{fancyvrb}
+
+% To include metapost files.
+\usepackage{ifpdf}                        % To check if pdflatex is used.
+\ifpdf
+  \DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+% Define path for images.
+\graphicspath{{./}, {./Images/}}
+
+% few useful commands
+\providecommand{\ie}{i.\,e.}
+\providecommand{\Ie}{I.\,e.}
+\providecommand{\eg}{e.\,g.}
+\providecommand{\Eg}{E.\,g.}
+
+% Basic listing setting (eg, autogobble to remove left margin)
+\lstset{basicstyle=\ttfamily, autogobble}
+
+% metropolis template settings
+\metroset{block=fill}
+\metroset{titleformat frame=smallcaps}
+
+\title{Introduction to total functional programming in Agda}
+%\subtitle{}
+
+\date{\today}
+\author[Alessandro Candolini]{Alessandro Candolini}
+%\institute{}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo/logo}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Agenda}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Warm up}
+\begin{frame}[fragile]
+  \frametitle{Placeholder Example}
+  \begin{lstlisting}[language=scala]
+    sealed trait Result[+A]
+    case object Loading extends Result[Nothng]
+    case class  Error(s : String) extends Result[Nothing]
+    case class Success[+A](a : A) extends Result[A]
+
+    def f[A] : Option[A] => Result[A] = {
+      case Some(a) => Success(a)
+      case _       => Error("invalid")
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+\plain{Questions?}
+
+%\begin{frame}[allowframebreaks] {References}
+% \bibliography{demo}
+% \bibliographystyle{abbrv}
+%\end{frame}
+
+\end{document}
+%% Useful for copy pasting. Would be better to just have snippets
+\begin{frame}[fragile]
+  \frametitle{}
+  \begin{lstlisting}[language=scala, basicstyle=\ttfamily]
+  \end{lstlisting}
+\end{frame}
