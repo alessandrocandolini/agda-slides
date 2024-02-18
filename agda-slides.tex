@@ -45,7 +45,7 @@
 \metroset{block=fill}
 \metroset{titleformat frame=smallcaps}
 
-\title{Introduction to total functional programming in Agda}
+\title{Total functional programming in Agda}
 %\subtitle{}
 
 \date{\today}
@@ -64,18 +64,23 @@
 
 \section{Warm up}
 \begin{frame}[fragile]
-  \frametitle{Placeholder Example}
-  \begin{lstlisting}[language=scala]
-    sealed trait Result[+A]
-    case object Loading extends Result[Nothng]
-    case class  Error(s : String) extends Result[Nothing]
-    case class Success[+A](a : A) extends Result[A]
-
-    def f[A] : Option[A] => Result[A] = {
-      case Some(a) => Success(a)
-      case _       => Error("invalid")
-    }
-  \end{lstlisting}
+  \frametitle{Meet Agda}
+  \begin{itemize}
+    \item Proof assistant 
+    \item Dependently-typed functional programming language 
+    \item Total (\ie, termination and production checkers) 
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Agda timeline in a nutshell}
+  \begin{description}
+    \item[1969]: Cornelis Vreeswijk releases the song \emph{H\"onan Agda}%
+      \footnote{\url{https://lists.chalmers.se/pipermail/agda/2016/008867.html}}
+    \item[1970s]: Martin-L\"of intuitionistic type theory in mathematics 
+    \item[1999]: Catarina Coquand implemented in Haskell the original version of Agda
+    \item[2007]: Ulf Norell developed Agda 2, with implementation described in his PhD thesis \emph{Towards a practical programming language based on dependent type theory}%
+      \footnote{\url{https://www.cse.chalmers.se/~ulfn/papers/thesis.pdf}}
+  \end{description}
 \end{frame}
 
 
